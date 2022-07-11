@@ -1,0 +1,110 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  line-height: 3;
+}
+.register__main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.register__main-container h1 {
+  display: flex;
+  align-items: center;
+  line-height: 1;
+  height: 6rem;
+  font-size: 3.5rem;
+  font-weight: 700;
+  font-size: 72px;
+  background: linear-gradient(90deg, #FFDF2B 0%, #D6592B 90%);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.register__logo {
+  display: flex;
+  margin-top: 1rem;
+  justify-content: center;
+  max-width: 18rem;
+  background-color: #FFF;
+  margin-bottom: 1rem;
+  height: 3.5rem;
+
+}
+.register__logo img {
+  width: 80%;
+  height: 100%;
+  background-color: #FFF;
+}
+.register__form {
+  max-width: 450px;
+  width: 100%;
+  line-height: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.register__form label {
+  display: block;
+}
+.register__container {
+  display: flex;
+  justify-content: space-between;
+}
+.register__container-group {
+  width: 49%;
+}
+.register__form-label {
+  margin-top: 1rem;
+}
+.register__form-input {
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  padding: 10px;
+  color: #606060;
+  margin-top: 0;
+  width: 100%;
+}
+.button-form-login-register {
+  padding: 10px;
+  max-width: 400px;
+  width: 100%;
+  background: rgb(214,89,43);
+  background: linear-gradient(90deg, #FFDF2B 0%, #D6592B 90%);
+  color: white;
+  font-weight: 500;
+  border-radius: 5px;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  margin-top: 40px;
+}
+.containerB {
+  width: 70%;
+  margin-right: 10px;
+}
+.containerB img {
+  margin-top: 25px;
+  width: 150px;
+  height: 140px;
+  border: 1px solid #ccc;
+  border-radius: 4px; 
+}
+.span__button-upload {
+  border-radius: 3px;
+  width: 6rem;
+  color: white;
+  font-weight: 500;
+  font-size: 12px;
+  padding: 5px;
+  cursor: pointer;
+  background: rgb(214,89,43);
+  background: linear-gradient(90deg, #FFDF2B 0%, #D6592B 90%);
+  display: block;
+  text-align: center;
+}
+.span__button-upload:hover{
+  background-color: #611f69;
+}
+.input__error {
+  color: #bf1650;
+}
