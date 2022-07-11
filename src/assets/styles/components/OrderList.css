@@ -1,0 +1,17 @@
+.order__list-item {
+  min-width: 7rem;
+  height: 3.5rem;
+  display: flex;
+  align-items: center;
+  margin-left: 1.5rem;
+  border-radius: 0.7rem;
+  background: rgb(214,89,43);
+  background: linear-gradient(90deg, #FFDF2B 0%, #D6592B 90%);
+  font-size: 1.3rem;
+  font-weight: 900;
+}
+.order__list-item i, .order__list-item p {
+  display: inline-block;
+  margin-left: 0.7rem;
+  color: #EEE
+}
