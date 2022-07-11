@@ -1,8 +1,11 @@
+import { HomePage } from "./pages/HomePage";
+import { Register } from "./pages/Register";
 
 function App() {
   return (
     <div className="App">
-      Hola mundo, prueba repositorio
+      {/* <HomePage /> */}
+      <Register />
     </div>
   );
 }
