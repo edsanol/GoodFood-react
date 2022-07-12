@@ -19,6 +19,17 @@ export const restaurantReducer = (state = initialState, action) => {
         logo: action.payload.logo,
         restaurant: action.payload,
       }
+    case 'LOADING_REVALIDATE':
+      return {
+        ...state,
+        checking: action.payload,
+      }
+    case 'FINISH_CHECKING':
+      return {
+        ...state,
+        checking: false,
+        loggedIn: false,
+      }
     default:
       return state
   }
