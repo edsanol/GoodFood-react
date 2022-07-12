@@ -1,5 +1,5 @@
-import { HomePage } from "./pages/HomePage";
-import { Register } from "./pages/Register";
+import { HomePage } from './pages/HomePage'
+import { Register } from './pages/Register'
 
 function App() {
   return (
@@ -7,7 +7,7 @@ function App() {
       {/* <HomePage /> */}
       <Register />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

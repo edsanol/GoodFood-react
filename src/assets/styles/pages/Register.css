@@ -79,8 +79,7 @@ body {
   margin-top: 40px;
 }
 .containerB {
-  width: 70%;
-  margin-right: 10px;
+  margin: 0 auto; 
 }
 .containerB img {
   margin-top: 25px;

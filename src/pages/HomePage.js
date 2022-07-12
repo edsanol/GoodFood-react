@@ -1,13 +1,13 @@
-import React from 'react';
-import { Aside } from '../components/Aside';
-import '../assets/styles/pages/HomePage.css';
-import { Home } from '../components/Home';
-import { Products } from '../components/Products';
+import React from 'react'
+import { Aside } from '../components/Aside'
+import '../assets/styles/pages/HomePage.css'
+import { Home } from '../components/Home'
+import { Products } from '../components/Products'
 
 export const HomePage = () => {
   const inputStyle = {
     fontFamily: "'Roboto', FontAwesome",
-  };
+  }
   return (
     <main className="main__full-container">
       <Aside />
@@ -33,5 +33,5 @@ export const HomePage = () => {
         <Products />
       </div>
     </main>
-  );
-};
+  )
+}
