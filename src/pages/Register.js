@@ -6,7 +6,7 @@ import { updateImageAction } from '../store/actions/ActionsImageProfile'
 import { ToastContainer } from 'react-toastify'
 import { toast } from 'react-toastify'
 import { registerUserAction } from '../store/actions/ActionRestaurants'
-import 'react-toastify/dist/ReactToastify.css';
+import 'react-toastify/dist/ReactToastify.css'
 
 export const Register = () => {
   const [file, setFile] = useState(null)
@@ -332,12 +332,25 @@ export const Register = () => {
             </div>
           </div>
 
-          <input
-            data-cy="register-click-event"
-            type="submit"
-            value="Register"
-            className="button-form-login-register"
-          />
+          {image && imageProfile ? (
+            <input
+              data-cy="register-click-event"
+              type="submit"
+              value="Register"
+              className="button-form-login-register"
+            />
+          ) : image && !imageProfile ? (
+            <p className="button-nosave">
+              Register
+            </p>
+          ) : (
+            <input
+              data-cy="register-click-event"
+              type="submit"
+              value="Register"
+              className="button-form-login-register"
+            />
+          )}
         </form>
       </main>
       <ToastContainer />

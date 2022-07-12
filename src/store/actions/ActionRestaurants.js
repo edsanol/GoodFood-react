@@ -41,4 +41,35 @@ export function registerUserAction(data) {
 const registerUser = (register) => ({
   type: 'CREATE_RESTAURANT',
   payload: register,
+})
+
+export const startChecking = () => {
+  return async (dispatch) => {
+    dispatch({ type: 'LOADING_REVALIDATE', payload: true })
+
+    try {
+      const token = localStorage.getItem('token') || ''
+      if (!token) {
+        return false
+      }
+      const response = await axios.get(`${BASE_URL}/api/restaurant/renew`, {
+        headers: {
+          'x-token': token,
+        },
+      })
+
+      if (response.data.ok) {
+        localStorage.setItem('token', response.data.token)
+      }
+
+      dispatch(registerUser(response.data.data))
+    } catch (error) {
+      dispatch(finishChecking());
+      console.log(error)
+    }
+  }
+}
+
+const finishChecking = () => ({
+  type: 'FINISH_CHECKING',
 });
