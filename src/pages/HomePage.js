@@ -3,14 +3,16 @@ import { Aside } from '../components/Aside'
 import '../assets/styles/pages/HomePage.css'
 import { Home } from '../components/Home'
 import { Products } from '../components/Products'
+import { useSelector } from 'react-redux'
 
 export const HomePage = () => {
   const inputStyle = {
     fontFamily: "'Roboto', FontAwesome",
   }
+  const { homeView } = useSelector((state) => state.homeReducer)
   return (
     <main className="main__full-container">
-      <Aside />
+      <Aside homeView={homeView} />
       <div className="div__container">
         <div className="div__container-header">
           <div className="div__header-left">
@@ -30,7 +32,13 @@ export const HomePage = () => {
           </div>
         </div>
         {/* <Home /> */}
-        <Products />
+        {homeView === 'Home' ? (
+          <Home />
+        ) : homeView === 'Products' ? (
+          <Products />
+        ) : (
+          <Home />
+        )}
       </div>
     </main>
   )

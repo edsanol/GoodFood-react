@@ -30,6 +30,16 @@ export const restaurantReducer = (state = initialState, action) => {
         checking: false,
         loggedIn: false,
       }
+    case 'LOGIN_USER':
+      return {
+        ...state,
+        checking: false,
+        loggedIn: true,
+        uid: action.payload._id,
+        name: action.payload.name,
+        logo: action.payload.logo,
+        restaurant: action.payload,
+      }
     default:
       return state
   }
