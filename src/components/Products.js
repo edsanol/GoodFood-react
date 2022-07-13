@@ -1,11 +1,23 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import '../assets/styles/components/Products.css'
 import { ProductItem } from './ProductItem'
+import { useSelector, useDispatch } from 'react-redux'
 import { Modal } from '@mantine/core'
 import { ModalProducts } from './modals/ModalProducts'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+import { getProductsByRestaurantAction } from '../store/actions/ActionProducts'
 
 export const Products = () => {
   const [opened, setOpened] = useState(false)
+  const dispatch = useDispatch()
+
+  const restaurantProducts = useSelector((state) => state.productReducer.products)
+
+  useEffect(() => {
+    dispatch(getProductsByRestaurantAction())
+  }, [dispatch])
+
 
   return (
     <div className="product__container-page">
@@ -14,7 +26,7 @@ export const Products = () => {
         onClose={() => setOpened(false)}
         withCloseButton={false}
         size="lg">
-        <ModalProducts />
+        <ModalProducts setOpened={setOpened} />
       </Modal>
       <div className="product__container-header">
         <div className="product__title">
@@ -32,11 +44,13 @@ export const Products = () => {
         </div>
       </div>
       <div className="product__container-orders">
-        <ProductItem />
-        <ProductItem />
-        <ProductItem />
-        <ProductItem />
+        {
+          restaurantProducts.map((product) => (
+            <ProductItem key={product.id} product={product} />
+          ))
+        }
       </div>
+      <ToastContainer />
     </div>
   )
 }

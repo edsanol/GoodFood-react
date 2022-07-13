@@ -31,6 +31,7 @@ p {
 .div__container {
   position: relative;
   max-width: calc(100% - 18rem);
+  min-width: calc(100% - 18rem);
   height: 100vh;
   left: 18rem;
   background-color: #f1f2f5;

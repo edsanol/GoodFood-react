@@ -1,24 +1,25 @@
 import React from 'react'
 import '../assets/styles/components/ProductItem.css'
-import imageFood from '../assets/images/product_02.png'
 
-export const ProductItem = () => {
+export const ProductItem = ({ product }) => {
+
+  const currency = function (number) {
+    return new Intl.NumberFormat('en-IN', {
+      style: 'currency',
+      currency: 'USD',
+      minimumFractionDigits: 0,
+    }).format(number)
+  }
+
   return (
     <div className="Products__container-product">
       <div className="Product__food-image">
-        <img src={imageFood} alt="card-food" />
+        <img src={product.image} alt="card-food" />
       </div>
       <div className="Product__detail">
-        <p className="Product__food-name">
-          Loin of Vension Black Pudding Pure & Jerk
-        </p>
-        <p className="Product__food-detail">
-          lorem ipsum dolor sit amet, consectetur adipis occ lorem lorem ipsum
-          dolor sit amet, consectetur adipis occ lorem lorem ipsum dolor sit
-          amet, consectetur adipis occ lorem lorem ipsum dolor sit amet,
-          consectetur adipis occ lorem
-        </p>
-        <p className="Product__food-price">$ 10.00</p>
+        <p className="Product__food-name">{product.name}</p>
+        <p className="Product__food-detail">{product.description}</p>
+        <p className="Product__food-price">{`${currency(product.price)}`}</p>
       </div>
     </div>
   )

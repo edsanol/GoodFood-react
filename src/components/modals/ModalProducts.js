@@ -1,10 +1,33 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
+import { useSelector, useDispatch } from 'react-redux'
 import '../../assets/styles/components/modals/ModalProducts.css'
+import { toast } from 'react-toastify'
+import { createProductAction } from '../../store/actions/ActionProducts'
+import {
+  updateImageAction,
+  updateNullImageAction,
+} from '../../store/actions/ActionsImageProfile'
 
-export const ModalProducts = () => {
+export const ModalProducts = ({ setOpened }) => {
   const [file, setFile] = useState(null)
   const [image, setImage] = useState(null)
+  const { imageProfile } = useSelector((state) => state.updateImageReducer)
+
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    if (file) {
+      const reader = new FileReader()
+      reader.onloadend = (e) => setImage(e.target.result)
+      reader.readAsDataURL(file)
+      dispatch(updateImageAction(file))
+    }
+  }, [file, dispatch])
+
+  useEffect(() => {
+    dispatch(updateNullImageAction(null))
+  }, [dispatch])
 
   const handleUpdateImageProfile = () => {
     document.querySelector('#imageSelector').click()
@@ -21,7 +44,19 @@ export const ModalProducts = () => {
 
   const onSubmit = async (data) => {
     try {
-      console.log(data)
+      let productUpdated
+      if (imageProfile) {
+        productUpdated = { ...data, image: imageProfile }
+      } else {
+        productUpdated = { ...data }
+      }
+      dispatch(createProductAction(productUpdated))
+      toast.success('The product was created', {
+        position: 'bottom-right',
+        theme: 'colored',
+      })
+
+      setOpened(false)
     } catch (err) {
       console.log(err)
     }
@@ -30,7 +65,7 @@ export const ModalProducts = () => {
   return (
     <form className="create-product__form" onSubmit={handleSubmit(onSubmit)}>
       <div className="container-edit-input">
-      <h2>Add a new product</h2>
+        <h2>Add a new product</h2>
         <label htmlFor="name" className="create-product__form-label">
           Name
         </label>
@@ -97,18 +132,33 @@ export const ModalProducts = () => {
           <p className="input__error">⚠ The description field is required</p>
         )}
 
-        <input
-          data-cy="register-click-event"
-          type="submit"
-          value="Save"
-          className="button-form-login-register"
-        />
+        {image && imageProfile ? (
+          <input
+            data-cy="register-click-event"
+            type="submit"
+            value="Save"
+            className="button-form-login-register"
+          />
+        ) : image && !imageProfile ? (
+          <p className="button-nosave">Save</p>
+        ) : (
+          <input
+            data-cy="register-click-event"
+            type="submit"
+            value="Save"
+            className="button-form-login-register"
+          />
+        )}
       </div>
 
       <div className="container-edit-image">
         <img
           className="img__upload-image"
-          src="https://www.kindpng.com/picc/m/475-4750784_restaurant-building-icon-icon-logo-restaurant-png-transparent.png"
+          src={
+            imageProfile
+              ? imageProfile
+              : 'https://www.kindpng.com/picc/m/475-4750784_restaurant-building-icon-icon-logo-restaurant-png-transparent.png'
+          }
           alt="edit your profile"
         />
         <span
@@ -133,21 +183,20 @@ export const ModalProducts = () => {
             Select category
           </label>
           <select
-            name="select"
-            id="select"
+            name="category"
+            id="category"
             className="modal-select__select"
-            {...register('select', {
+            {...register('category', {
               required: true,
             })}>
             <option value="without_category">Without category</option>
-            <option value="hamburguer">Hamburguer</option>
-            <option value="fries">Fries</option>
-            <option value="pizza">Pizza</option>
-            <option value="vegetarian">Vegetarian</option>
-            <option value="salchipapa">Salchipapa</option>
-            <option value="sodas">Sodas</option>
-            <option value="drinks">Drinks</option>
-            <option value="especials">Especials</option>
+            <option value="62cf258898829d4a6706b98a">Hamburguer</option>
+            <option value="62cf25b098829d4a6706b98c">Fries</option>
+            <option value="62cf25d898829d4a6706b98e">Pizza</option>
+            <option value="62cf266c98829d4a6706b994">Hot Dog</option>
+            <option value="62cf260b98829d4a6706b990">Sodas</option>
+            <option value="62cf26a898829d4a6706b996">Sandwich</option>
+            <option value="62cf262798829d4a6706b992">Dessert</option>
           </select>
         </div>
       </div>

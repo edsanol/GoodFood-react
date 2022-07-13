@@ -16,15 +16,18 @@
   box-shadow: 0px 0px 6px 3px rgba(0, 0, 0, 0.2);
 }
 .Product__food-image {
-  width: 13rem;
-  height: 13rem;
+  min-width: 15rem;
+  max-height: 10rem;
   position: absolute;
-  top: -4rem;
+  top: 1rem;
   left: 50%;
   transform: translate(-50%, 0%);
 }
 .Product__food-image img {
+  max-width: 100%;
+  max-height: 90%;
   object-fit: cover;
+  border-radius: 1.5rem;
 }
 .Product__detail {
   display: flex;
@@ -34,7 +37,7 @@
   padding: 1rem;  
   text-align: center;
   line-height: 1;
-  margin-top: 9rem;
+  margin-top: 12rem;
 }
 .Product__food-name {
   font-size: 1.2rem;
