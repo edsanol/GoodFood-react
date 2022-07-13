@@ -9,6 +9,11 @@ export const updateImageReducer = (state = initialState, action) => {
         ...state,
         imageProfile: action.payload,
       }
+    case 'UPDATE_NULL_IMAGE':
+      return {
+        ...state,
+        imageProfile: action.payload,
+      }
     default:
       return state
   }

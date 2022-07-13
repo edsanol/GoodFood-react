@@ -60,6 +60,8 @@
   margin-top: 10px;
   padding-left: 10px;
   margin-bottom: 1rem;
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.9rem;
 }
 .create-product__select-label {
   display: block;
