@@ -5,18 +5,19 @@ import { Register } from './pages/Register'
 import { Navigate } from 'react-router-dom'
 import { useEffect } from 'react'
 import { startChecking } from './store/actions/ActionRestaurants'
+import { Login } from './pages/Login'
 
 function App() {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(startChecking());
-  }, [dispatch]);
+    dispatch(startChecking())
+  }, [dispatch])
 
   const { loggedIn } = useSelector((state) => state.restaurantReducer)
 
   const PrivateRoute = ({ children }) => {
-    return loggedIn ? children : <Navigate to="/register" />
+    return loggedIn ? children : <Navigate to="/login" />
   }
   const PublicRoute = ({ children }) => {
     return loggedIn ? <Navigate to="/" /> : children
@@ -32,6 +33,10 @@ function App() {
         <Route
           path="/register"
           element={<PublicRoute children={<Register />}></PublicRoute>}
+        />
+        <Route
+          path="/login"
+          element={<PublicRoute children={<Login />}></PublicRoute>}
         />
       </Routes>
     </BrowserRouter>

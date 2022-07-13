@@ -64,7 +64,7 @@ export const startChecking = () => {
 
       dispatch(registerUser(response.data.data))
     } catch (error) {
-      dispatch(finishChecking());
+      dispatch(finishChecking())
       console.log(error)
     }
   }
@@ -72,4 +72,39 @@ export const startChecking = () => {
 
 const finishChecking = () => ({
   type: 'FINISH_CHECKING',
-});
+})
+
+export const loginUserAction = (data) => {
+  return async (dispatch) => {
+    try {
+      const response = await axios.post(
+        `${BASE_URL}/api/restaurant/login`,
+        {
+          email: data.email,
+          password: data.password,
+        },
+        {
+          headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+          },
+        }
+      )
+      if (response.data.ok) {
+        localStorage.setItem('token', response.data.token)
+      }
+
+      dispatch(loginUser(response.data.restaurant))
+    } catch (error) {
+      console.log(error)
+      toast.error('email or password is incorrect', {
+        position: 'bottom-right',
+        theme: 'colored',
+      })
+    }
+  }
+}
+
+const loginUser = (login) => ({
+  type: 'LOGIN_USER',
+  payload: login,
+})
