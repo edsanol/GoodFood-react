@@ -80,7 +80,7 @@ export const Register = () => {
                 placeholder="Enter the restaurant name"
                 {...register('restaurant', {
                   required: true,
-                  pattern: /^[a-z\d A-Z\d]{6,30}$/i,
+                  pattern: /^[a-z\d A-Z\d]{2,30}$/i,
                 })}
               />
               {errors.restaurant?.type === 'required' && (
@@ -340,9 +340,7 @@ export const Register = () => {
               className="button-form-login-register"
             />
           ) : image && !imageProfile ? (
-            <p className="button-nosave">
-              Register
-            </p>
+            <p className="button-nosave">Register</p>
           ) : (
             <input
               data-cy="register-click-event"
