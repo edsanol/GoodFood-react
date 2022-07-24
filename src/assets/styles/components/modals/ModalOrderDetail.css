@@ -1,0 +1,15 @@
+.form__div-modal {
+  position: relative;
+  margin-left: 10px;
+}
+.form__input-modal {
+  position: absolute;
+  right: 10px;
+  top: 8px;
+  border: 1px solid #9face6;
+  border-radius: 5px;
+  padding: 5px;
+  color: #606060;
+  margin-top: 0;
+  width: 12rem;
+}

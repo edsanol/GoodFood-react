@@ -1,0 +1,58 @@
+.Products__container-product {
+  min-width: 20rem;
+  position: relative;
+  height: 25rem;
+  border-radius: 1rem;
+  background: rgb(209, 210, 213);
+  background: linear-gradient(
+    180deg,
+    rgba(209, 210, 213, 1) 0%,
+    rgba(225, 226, 229, 1) 40%,
+    rgba(225, 226, 229, 1) 60%,
+    rgba(209, 210, 213, 1) 100%
+  );
+  margin: 2.5rem 2rem;
+  -webkit-box-shadow: 0px 0px 12px 4px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 0px 6px 3px rgba(0, 0, 0, 0.2);
+}
+.Product__food-image {
+  min-width: 15rem;
+  max-height: 10rem;
+  position: absolute;
+  top: 1rem;
+  left: 50%;
+  transform: translate(-50%, 0%);
+}
+.Product__food-image img {
+  max-width: 100%;
+  max-height: 90%;
+  object-fit: cover;
+  border-radius: 1.5rem;
+}
+.Product__detail {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: calc(100% - 13rem);
+  padding: 1rem;  
+  text-align: center;
+  line-height: 1;
+  margin-top: 12rem;
+}
+.Product__food-name {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #333;
+  margin: 1rem 0;
+}
+.Product__food-detail {
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: #555;
+}
+.Product__food-price {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #333;
+  margin: 1rem 0;
+}

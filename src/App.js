@@ -1,25 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
+import { useDispatch, useSelector } from 'react-redux'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { HomePage } from './pages/HomePage'
+import { Register } from './pages/Register'
+import { Navigate } from 'react-router-dom'
+import { useEffect } from 'react'
+import { startChecking } from './store/actions/ActionRestaurants'
+import { Login } from './pages/Login'
 
 function App() {
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(startChecking())
+  }, [dispatch])
+
+  const { loggedIn } = useSelector((state) => state.restaurantReducer)
+
+  const PrivateRoute = ({ children }) => {
+    return loggedIn ? children : <Navigate to="/login" />
+  }
+  const PublicRoute = ({ children }) => {
+    return loggedIn ? <Navigate to="/" /> : children
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <BrowserRouter>
+      <Routes>
+        <Route
+          path="/"
+          element={<PrivateRoute children={<HomePage />}></PrivateRoute>}
+        />
+        <Route
+          path="/register"
+          element={<PublicRoute children={<Register />}></PublicRoute>}
+        />
+        <Route
+          path="/login"
+          element={<PublicRoute children={<Login />}></PublicRoute>}
+        />
+      </Routes>
+    </BrowserRouter>
+  )
 }
 
-export default App;
+export default App
