@@ -31,7 +31,7 @@ export const Products = () => {
       <div className="product__container-header">
         <div className="product__title">
           <h3>RESTAURANT is open</h3>
-          <p>22 Mei 2021, 12.21 PM</p>
+          <p>22 Mie 2021, 12.21 PM</p>
         </div>
         <div className="product__products-title">
           <h3>ALL PRODUCTS</h3>

@@ -6,6 +6,7 @@ import { updateImageAction } from '../store/actions/ActionsImageProfile'
 import { ToastContainer } from 'react-toastify'
 import { toast } from 'react-toastify'
 import { registerUserAction } from '../store/actions/ActionRestaurants'
+import { Link } from 'react-router-dom'
 import 'react-toastify/dist/ReactToastify.css'
 
 export const Register = () => {
@@ -350,6 +351,9 @@ export const Register = () => {
             />
           )}
         </form>
+        <p className="pin__magic">
+          Already using Good Food? <Link to="/login"> Sign in</Link>
+        </p>
       </main>
       <ToastContainer />
     </>

@@ -40,6 +40,16 @@ export const restaurantReducer = (state = initialState, action) => {
         logo: action.payload.logo,
         restaurant: action.payload,
       }
+    case 'LOGOUT_USER':
+      return {
+        ...state,
+        checking: true,
+        loggedIn: false,
+        uid: null,
+        name: null,
+        logo: null,
+        restaurant: {},
+      }
     default:
       return state
   }

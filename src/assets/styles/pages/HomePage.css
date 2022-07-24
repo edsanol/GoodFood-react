@@ -36,8 +36,8 @@ p {
   left: 18rem;
   background-color: #f1f2f5;
   overflow-y: auto;
-	scrollbar-width: none;
-	transition: all .3s ease;
+  scrollbar-width: none;
+  transition: all 0.3s ease;
 }
 .div__container-header {
   max-width: 100%;
@@ -84,8 +84,8 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 2.2rem;
-  height: 2.2rem;
+  width: 2.5rem;
+  height: 2.5rem;
   background-color: #d6592b;
   color: #fff;
   border-radius: 50%;
@@ -94,11 +94,28 @@ p {
   font-size: 1rem;
   font-weight: 700;
 }
+.div__header-right-logo-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
 .div__header-right-restaurant {
   font-weight: 400;
   margin-right: 2rem;
   color: #333;
   font-size: 1rem;
+}
+.div__header-right-notification {
+  position: relative;
+}
+.div__header-right-badge {
+  position: absolute;
+  width: .7rem;
+  height: .7rem;
+  background-color: red;
+  border-radius: 50%;
+  top: 1rem;
+  right: 1rem;
 }
 
 @media (max-width: 850px) {

@@ -1,5 +1,5 @@
 export const uplodadImageProfile = async (file) => {
-  const cloudinaryURL = 'https://api.cloudinary.com/v1_1/dho6leigc/upload'
+  const cloudinaryURL = process.env.REACT_APP_URL_CLOUD
 
   const formData = new FormData()
   formData.append('upload_preset', 'good-food-app')
