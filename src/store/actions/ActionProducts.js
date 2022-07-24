@@ -17,7 +17,7 @@ export function createProductAction(data) {
           description: data.description,
           price: data.price,
           image: data.image,
-          rating: "-",
+          rating: '-',
         },
         {
           headers: {
@@ -50,7 +50,7 @@ export const getProductsByRestaurantAction = () => {
       if (!token) {
         return false
       }
-      const response = await axios.get(`${BASE_URL}/api/food`, {
+      const response = await axios.get(`${BASE_URL}/api/food/restaurant`, {
         headers: {
           'x-token': token,
         },

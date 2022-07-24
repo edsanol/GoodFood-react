@@ -16,7 +16,7 @@ body {
   font-size: 3.5rem;
   font-weight: 700;
   font-size: 72px;
-  background: linear-gradient(90deg, #FFDF2B 0%, #D6592B 90%);
+  background: linear-gradient(90deg, #ffdf2b 0%, #d6592b 90%);
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -25,15 +25,14 @@ body {
   margin-top: 1rem;
   justify-content: center;
   max-width: 18rem;
-  background-color: #FFF;
+  background-color: #fff;
   margin-bottom: 1rem;
   height: 3.5rem;
-
 }
 .register__logo img {
   width: 80%;
   height: 100%;
-  background-color: #FFF;
+  background-color: #fff;
 }
 .register__form {
   max-width: 450px;
@@ -68,8 +67,8 @@ body {
   padding: 10px;
   max-width: 100%;
   width: 100%;
-  background: rgb(214,89,43);
-  background: linear-gradient(90deg, #FFDF2B 0%, #D6592B 90%);
+  background: rgb(214, 89, 43);
+  background: linear-gradient(90deg, #ffdf2b 0%, #d6592b 90%);
   color: white;
   font-weight: 500;
   border-radius: 5px;
@@ -82,8 +81,8 @@ body {
   padding: 2.5px;
   max-width: 100%;
   width: 100%;
-  background: rgb(214,89,43);
-  background: linear-gradient(90deg, #FFDF2B 0%, #D6592B 90%);
+  background: rgb(214, 89, 43);
+  background: linear-gradient(90deg, #ffdf2b 0%, #d6592b 90%);
   opacity: 0.8;
   color: white;
   font-weight: 500;
@@ -95,14 +94,14 @@ body {
   text-align: center;
 }
 .containerB {
-  margin: 0 auto; 
+  margin: 0 auto;
 }
 .containerB img {
   margin-top: 25px;
   width: 150px;
   height: 140px;
   border: 1px solid #ccc;
-  border-radius: 4px; 
+  border-radius: 4px;
 }
 .span__button-upload {
   border-radius: 3px;
@@ -112,14 +111,18 @@ body {
   font-size: 12px;
   padding: 5px;
   cursor: pointer;
-  background: rgb(214,89,43);
-  background: linear-gradient(90deg, #FFDF2B 0%, #D6592B 90%);
+  background: rgb(214, 89, 43);
+  background: linear-gradient(90deg, #ffdf2b 0%, #d6592b 90%);
   display: block;
   text-align: center;
 }
-.span__button-upload:hover{
+.span__button-upload:hover {
   background-color: #611f69;
 }
 .input__error {
   color: #bf1650;
+}
+.pin__magic {
+  text-align: justify;
+  margin-top: 2rem;
 }

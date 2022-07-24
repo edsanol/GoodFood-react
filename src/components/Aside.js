@@ -2,6 +2,7 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 import '../assets/styles/components/Aside.css'
 import { actionsChangeHome } from '../store/actions/ActionHome'
+import { logoutUserAction } from '../store/actions/ActionRestaurants'
 
 export const Aside = ({ homeView }) => {
   const dispatch = useDispatch()
@@ -24,10 +25,10 @@ export const Aside = ({ homeView }) => {
             <p className="text__aseide-p"> HOME</p>
           </li>
           <li
-            className={homeView === 'Messages' ? 'option__selected' : ''}
+            className={homeView === 'History' ? 'option__selected' : ''}
             type="button"
-            onClick={() => dispatch(actionsChangeHome('Messages'))}>
-            <i className="fa-solid fa-message"></i> MESSAGES
+            onClick={() => dispatch(actionsChangeHome('History'))}>
+            <i className="fa-solid fa-message"></i> ORDER HISTORY
           </li>
           <li
             type="button"
@@ -38,8 +39,8 @@ export const Aside = ({ homeView }) => {
           <li
             type="button"
             className={homeView === 'Settings' ? 'option__selected' : ''}
-            onClick={() => dispatch(actionsChangeHome('Settings'))}>
-            <i className="fa-solid fa-gear"></i> SETTINGS
+            onClick={() => dispatch(logoutUserAction())}>
+            <i className="fa-solid fa-gear"></i> LOGOUT
           </li>
         </ul>
       </div>

@@ -108,3 +108,11 @@ const loginUser = (login) => ({
   type: 'LOGIN_USER',
   payload: login,
 })
+
+export const logoutUserAction = () => {
+  return async (dispatch) => {
+    localStorage.removeItem('token')
+    localStorage.removeItem('bell')
+    dispatch({ type: 'LOGOUT_USER' })
+  }
+}
