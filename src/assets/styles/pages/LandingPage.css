@@ -1,0 +1,171 @@
+a {
+  text-decoration: none;
+  color: #000;
+}
+.landingPage__container {
+  height: 100vh;
+  width: 100vw;
+  background-color: #fff;
+}
+.landingPage__header {
+  width: 100vw;
+  height: 6rem;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.landingPage__header-rigth {
+  width: 33%;
+  background-color: #fff;
+  padding-left: 5rem;
+}
+.landingPage__header-rigth img {
+  width: 10rem;
+  object-fit: cover;
+  margin-left: 1.5rem;
+}
+.landingPage__header-center {
+  width: 33%;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 500;
+  background-color: #fff;
+}
+.landingPage__header-center a {
+  color: #777;
+  text-decoration: none;
+  margin-left: 2rem;
+}
+.landingPage__header-left {
+  width: 33%;
+  background-color: #fff;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 5rem;
+}
+.social-icon {
+  display: inline-block;
+  margin-left: 14px;
+}
+.social-icon a {
+  width: 42px;
+  height: 42px;
+  background: rgba(217, 217, 217, 0.1);
+  display: inline-flex;
+  border-radius: 0.8rem;
+  margin-right: 6px;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+.social-icon a:hover::before {
+  transform: scale(1);
+}
+.social-icon a i {
+  font-size: 20px;
+  color: #777;
+  z-index: 1;
+  transition: 0.3s ease-in-out;
+}
+.landingPage__main-container {
+  width: 100vw;
+  height: calc(100vh - 6rem);
+  background-color: #fff;
+  display: flex;
+}
+.landingPage__main-left {
+  height: calc(100vh - 6rem);
+  width: 50%;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 5rem;
+}
+.landingPage__text-title {
+  font-family: 'Oleo Script Swash Caps', cursive;
+  font-size: 80px;
+  line-height: 1;
+  background: linear-gradient(90deg, #ffdf2b 30%, #d6592b 100%);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+}
+.landingPage__text {
+  font-size: 1.5rem;
+  line-height: 1.5;
+  color: #777;
+  margin-top: 2rem;
+}
+.landingPage__button {
+  padding: 8px;
+  width: 40%;
+  background: rgb(214, 89, 43);
+  background: linear-gradient(90deg, #ffdf2b 30%, #d6592b 100%);
+  color: white;
+  font-weight: 500;
+  border-radius: 50px;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin-top: 40px;
+  text-align: center;
+}
+.landingPage__main-right {
+  height: calc(100vh - 6rem);
+  width: 50%;
+  background-image: url('https://i.postimg.cc/GmFqCx8K/Fastfood.jpg');
+  background-position: top center;
+  background-size: container;
+  background-repeat: no-repeat;
+}
+
+@media (max-width: 1100px) {
+  .landingPage__button {
+    width: 60%;
+  }
+  .landingPage__text-title {
+    font-size: 60px;
+  }
+  .landingPage__header-left {
+    width: 25%;
+  }
+  .landingPage__header-rigth {
+    width: 25%;
+  }
+}
+@media (max-width: 965px) {
+  .landingPage__header-left {
+    padding-right: 0.5rem;
+    width: 20%;
+  }
+  .landingPage__header-rigth {
+    padding-left: 0.5rem;
+    width: 15%;
+  }
+}
+@media (max-width: 850px) {
+  .landingPage__header {
+    justify-content: space-between;
+  }
+  .landingPage__header-center a {
+    margin-left: 0.5rem;
+  }
+  .landingPage__button {
+    width: 80%;
+  }
+}
+@media (max-width: 650px) {
+  .landingPage__main-left {
+    width: 100%;
+  }
+  .landingPage__main-right {
+    width: 0;
+  }
+  .landingPage__header-rigth img {
+    margin-left: 0;
+  }
+}

@@ -6,6 +6,7 @@ import { Navigate } from 'react-router-dom'
 import { useEffect } from 'react'
 import { startChecking } from './store/actions/ActionRestaurants'
 import { Login } from './pages/Login'
+import { LandingPage } from './pages/LandingPage'
 
 function App() {
   const dispatch = useDispatch()
@@ -17,7 +18,7 @@ function App() {
   const { loggedIn } = useSelector((state) => state.restaurantReducer)
 
   const PrivateRoute = ({ children }) => {
-    return loggedIn ? children : <Navigate to="/login" />
+    return loggedIn ? children : <Navigate to="/home" />
   }
   const PublicRoute = ({ children }) => {
     return loggedIn ? <Navigate to="/" /> : children
@@ -29,6 +30,10 @@ function App() {
         <Route
           path="/"
           element={<PrivateRoute children={<HomePage />}></PrivateRoute>}
+        />
+        <Route
+          path="/home"
+          element={<PublicRoute children={<LandingPage />}></PublicRoute>}
         />
         <Route
           path="/register"
