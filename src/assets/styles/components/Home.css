@@ -17,6 +17,15 @@
   color: #666;
   margin-left: 2.7rem;
 }
+.home__no-orders {
+  height: 5rem;
+  margin: 0;
+  padding: 0;
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: #333;
+  margin-left: 2.7rem;
+}
 .home__orders {
   max-width: calc(100vw - 18rem);
   width: 100%;

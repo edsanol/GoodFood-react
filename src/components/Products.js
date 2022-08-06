@@ -12,12 +12,13 @@ export const Products = () => {
   const [opened, setOpened] = useState(false)
   const dispatch = useDispatch()
 
-  const restaurantProducts = useSelector((state) => state.productReducer.products)
+  const restaurantProducts = useSelector(
+    (state) => state.productReducer.products
+  )
 
   useEffect(() => {
     dispatch(getProductsByRestaurantAction())
   }, [dispatch])
-
 
   return (
     <div className="product__container-page">
@@ -44,11 +45,13 @@ export const Products = () => {
         </div>
       </div>
       <div className="product__container-orders">
-        {
+        {restaurantProducts.length > 0 ? (
           restaurantProducts.map((product) => (
             <ProductItem key={product.id} product={product} />
           ))
-        }
+        ) : (
+          <p className="home__no-orders">No products yet</p>
+        )}
       </div>
       <ToastContainer />
     </div>

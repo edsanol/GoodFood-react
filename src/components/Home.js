@@ -12,7 +12,7 @@ export const Home = () => {
   const { restaurant } = useSelector((state) => state.restaurantReducer)
 
   useEffect(() => {
-    dispatch(getAllOrdersAction())
+    dispatch(getAllOrdersAction())  
   }, [dispatch])
 
   return (
@@ -22,12 +22,17 @@ export const Home = () => {
           <h3>ORDER LIST</h3>
         </div>
         <div className="home__orders">
-          {orders
-            .filter((order) => order.restaurantId === restaurant.id)
-            .filter((order) => order.success === false)
-            .map((order) => (
-              <OrderList key={order.id} numberOrder={order.id} />
-            ))}
+          {orders.filter((order) => order.restaurantId === restaurant.id)
+            .length > 0 ? (
+            orders
+              .filter((order) => order.restaurantId === restaurant.id)
+              .filter((order) => order.success === false)
+              .map((order) => (
+                <OrderList key={order.id} numberOrder={order.id} />
+              ))
+          ) : (
+            <p className="home__no-orders">No orders yet</p>
+          )}
         </div>
       </div>
       <div className="home__container-orders">
